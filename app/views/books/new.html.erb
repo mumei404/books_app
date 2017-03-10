@@ -1,3 +1,17 @@
 <% provide(:title, 'Regist books') %>
 <h1>Regist books</h1>
-<p>You can regist your books.</p>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@book) do |f| %>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        
+            <%= f.label :author %>
+            <%= f.text_field :author %>
+        
+            <%= f.submit "Regist your books", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
+
