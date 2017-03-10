@@ -1,0 +1,4 @@
+<li>
+    <%= link_to book.title, book %>
+    | <%= link_to "delete", book, method: :delete, data: { confirm: "削除していい？" } %>
+</li>
