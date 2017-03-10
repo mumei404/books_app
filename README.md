@@ -1,4 +1,4 @@
-This is a management page of my own books.
+This is a management page of my own books based on Rails Tutorial.
 
 In this page, I can...
     -regist books information.
