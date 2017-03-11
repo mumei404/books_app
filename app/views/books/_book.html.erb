@@ -2,6 +2,7 @@
     <%= link_to book.title, book %>
     <%= book.author %>
     <%= book.number %>巻
-    | <%= link_to "edit", edit_book_path(book) %>
-    | <%= link_to "delete", book, method: :delete, data: { confirm: "削除していい？" } %>
+    <%= book.publisher %>
+    | <%= link_to "編集", edit_book_path(book) %>
+    | <%= link_to "削除", book, method: :delete, data: { confirm: "削除していい？" } %>
 </li>
