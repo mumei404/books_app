@@ -1,0 +1,5 @@
+<li>
+    <%= link_to publisher.name, publisher %>
+    | <%= link_to "edit", edit_publisher_path(publisher) %>
+    | <%= link_to "delete", publisher, method: :delete, data: { confirm: "削除していい？" } %>
+</li>

@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+  get 'publishers/new'
+
   get 'books/new'
 
     root 'static_pages#home'
     get '/help', to: 'static_pages#help'
     get '/about', to: 'static_pages#about'
-    get '/input', to: 'books#new'
+    get '/regist', to: 'books#new'
+    get '/pub', to: 'publishers#new'
     resources :books
+    resources :publishers
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
