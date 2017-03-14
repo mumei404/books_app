@@ -6,6 +6,7 @@ class BooksController < ApplicationController
     
     def show
         @book = Book.find(params[:id])
+        @publisher = Publisher.where('publisher_id = ?', params[:id])
     end
 
     def new
@@ -41,10 +42,11 @@ class BooksController < ApplicationController
         flash[:success] = "Book deleted"
         redirect_to books_url
     end
+
     
     private
     
     def book_params
-        params.require(:book).permit(:title, :author, :number, :publisher)
+        params.require(:book).permit(:title, :author, :number, :publisher, :publisher_id)
     end
 end

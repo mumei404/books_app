@@ -1,12 +1,20 @@
 <% provide(:title, @publisher.name) %>
 
-<div class="row">
-    <aside class="col-md-4">
-        <section class="book_info">
-            <h1>出版社</h1>
-            <h2><%= @publisher.name %></h2>
-        </section>
-    </aside>
-</div>
+<h1><%= @publisher.name %></h1>
+
+<ul class="books">
+    <% @book.each do |b| %>
+        <li>
+            <%= link_to b.title, b %>
+            <%= b.author %>
+            <%= b.number %>巻
+            | <%= link_to "編集", edit_book_path(b) %>
+            | <%= link_to "削除", b, method: :delete, data: { confirm: "削除していい？" } %>
+        </li>
+    <% end %>
+</ul>
+
+
+
 
 

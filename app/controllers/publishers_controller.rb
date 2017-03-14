@@ -6,6 +6,7 @@ class PublishersController < ApplicationController
     
     def show
         @publisher = Publisher.find(params[:id])
+        @book = Book.where('publisher = ?', @publisher.name)
     end
     
     def new
@@ -40,6 +41,12 @@ class PublishersController < ApplicationController
         Publisher.find(params[:id]).destroy
         flash[:success] = "Publisher deleted"
         redirect_to publishers_url
+    end
+    
+        
+    def publisher
+        @publisher = Publisher.find(params[:id])
+        @book = Book.where('publisher = ?', params[:id])
     end
     
     private
