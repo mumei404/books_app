@@ -5,6 +5,7 @@ class PublishersController < ApplicationController
     end
     
     def show
+        @publishers = Publisher.all
         @publisher = Publisher.find(params[:id])
         @book = Book.where('publisher = ?', @publisher.name)
     end

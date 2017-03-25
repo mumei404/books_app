@@ -1,0 +1,12 @@
+<% provide(:title, @feed.name) %>
+<h1><%= link_to @feed.name, "http://natalie.mu/comic" %>の新着記事</h1>
+
+<div class="container">
+  <% @entries.each do |entry| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= link_to entry.title, entry_show_path(entry.id) %> - <i> published <%= time_ago_in_words(entry.published) %> ago.</i>
+      </div>
+    </div>
+  <% end %>
+</div>

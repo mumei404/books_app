@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  get 'entries/index'
+
+  get 'entries/show'
+  get '/:id/entries', to: 'entries#index', as: 'entry'
+  get 'entries/:id', to: 'entries#show', as: 'entry_show'
+
+  resources :feeds do
+    member do
+      resources :entries, only: [:index, :show]
+    end
+  end
+  
+
   get 'publishers/new'
 
   get 'books/new'
@@ -10,6 +23,7 @@ Rails.application.routes.draw do
     #get '/publishers/:id', to: 'publishers#show'
     resources :books
     resources :publishers
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
